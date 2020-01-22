@@ -6,6 +6,11 @@
 /*----------------------------------------------------------------------------*/
 
 #include "commands/ExampleCommand.h"
+#include <iostream>
 
 ExampleCommand::ExampleCommand(ExampleSubsystem* subsystem)
     : m_subsystem{subsystem} {}
+
+void ExampleCommand::Initialize() {
+    std::cout << "My Test";
+}

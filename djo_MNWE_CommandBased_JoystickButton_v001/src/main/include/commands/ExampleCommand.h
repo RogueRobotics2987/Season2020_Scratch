@@ -31,4 +31,5 @@ class ExampleCommand
 
  private:
   ExampleSubsystem* m_subsystem;
+  void Initialize();
 };
