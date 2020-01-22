@@ -12,5 +12,8 @@ ExampleCommand::ExampleCommand(ExampleSubsystem* subsystem)
     : m_subsystem{subsystem} {}
 
 void ExampleCommand::Initialize() {
-    std::cout << "My Test";
+    std::cout << "Our Example Command, Initializing." << std::endl;
+}
+void ExampleCommand::Execute() {
+    std::cout << "Our Example Command, Executing..." << std::endl;
 }

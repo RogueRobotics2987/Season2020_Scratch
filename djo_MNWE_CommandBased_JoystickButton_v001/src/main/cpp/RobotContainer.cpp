@@ -18,8 +18,6 @@ RobotContainer::RobotContainer() : m_autonomousCommand(&m_subsystem) {
 void RobotContainer::ConfigureButtonBindings() {
   // Configure your button bindings here
   j1.WhenPressed(ExampleCommand(&m_subsystem));
-  //j1.WhenPressed(ExampleCommand());  //Not tried yet
-  //ExampleCommand()
 }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {
