@@ -11,6 +11,7 @@
 #include <frc/Joystick.h>
 
 #include "commands/ExampleCommand.h"
+#include "commands/ExaDefaultCmd.h"
 #include "subsystems/ExampleSubsystem.h"
 #include "frc2/command/button/JoystickButton.h"
 

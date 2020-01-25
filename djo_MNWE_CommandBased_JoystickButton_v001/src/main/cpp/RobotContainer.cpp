@@ -11,6 +11,8 @@
 RobotContainer::RobotContainer() : m_autonomousCommand(&m_subsystem) {
   // Initialize all of your commands and subsystems here
 
+  m_subsystem.SetDefaultCommand(ExaDefaultCmd(&m_subsystem));
+
   // Configure the button bindings
   ConfigureButtonBindings();
 }
