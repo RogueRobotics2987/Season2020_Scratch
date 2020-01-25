@@ -9,7 +9,9 @@
 #include <iostream>
 
 ExaDefaultCmd::ExaDefaultCmd(ExampleSubsystem* subsystem)
-    : m_subsystem{subsystem} {}
+    : m_subsystem{subsystem} {
+        AddRequirements(m_subsystem);
+    }
 
 void ExaDefaultCmd::Initialize() {
     std::cout << "Our Default Command, Initializing." << std::endl;
