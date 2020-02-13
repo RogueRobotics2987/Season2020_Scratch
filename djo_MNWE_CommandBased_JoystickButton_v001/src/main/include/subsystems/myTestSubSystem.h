@@ -5,14 +5,20 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/ExampleCommand.h"
+#pragma once
 
-ExampleCommand::ExampleCommand(ExampleSubsystem* subsystem)
-    : m_subsystem{subsystem} {}
+#include <frc2/command/SubsystemBase.h>
 
-void ExampleCommand::Initialize() {
-    std::cout << "Our Example Command, Initializing." << std::endl;
-}
-void ExampleCommand::Execute() {
-    std::cout << "Our Example Command, Executing..." << std::endl;
-}
+class myTestSubSystem : public frc2::SubsystemBase {
+ public:
+  myTestSubSystem();
+
+  /**
+   * Will be called periodically whenever the CommandScheduler runs.
+   */
+  void Periodic();
+
+ private:
+  // Components (e.g. motor controllers and sensors) should generally be
+  // declared private and exposed only through public methods.
+};

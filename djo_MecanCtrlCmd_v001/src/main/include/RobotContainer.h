@@ -7,14 +7,18 @@
 
 #pragma once
 
+#include <frc/XboxController.h>
+#include <frc/controller/PIDController.h>
+#include <frc/controller/ProfiledPIDController.h>
+#include <frc/smartdashboard/SendableChooser.h>
 #include <frc2/command/Command.h>
+#include <frc2/command/InstantCommand.h>
+#include <frc2/command/PIDCommand.h>
+#include <frc2/command/ParallelRaceGroup.h>
+#include <frc2/command/RunCommand.h>
 
-#include "commands/ExampleCommand.h"
-#include "commands/ExaDefaultCmd.h"
-#include "subsystems/ExampleSubsystem.h"
-
-#include <frc/Joystick.h>
-#include "frc2/command/button/JoystickButton.h"
+#include "Constants.h"
+#include "subsystems/DriveSubsystem.h"
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
@@ -30,11 +34,21 @@ class RobotContainer {
   frc2::Command* GetAutonomousCommand();
 
  private:
+  // The driver's controller
+  frc::XboxController m_driverController{OIConstants::kDriverControllerPort};
+
   // The robot's subsystems and commands are defined here...
-  ExampleSubsystem m_subsystem;
-  ExampleCommand m_autonomousCommand;
-  frc::Joystick stick{0};
-  frc2::JoystickButton j1{&stick, 1};
+
+  // The robot's subsystems
+  DriveSubsystem m_drive;
+
+  frc2::InstantCommand m_driveHalfSpeed{[this] { m_drive.SetMaxOutput(.5); },
+                                        {}};
+  frc2::InstantCommand m_driveFullSpeed{[this] { m_drive.SetMaxOutput(1); },
+                                        {}};
+
+  // The chooser for the autonomous routines
+  frc::SendableChooser<frc2::Command*> m_chooser;
 
   void ConfigureButtonBindings();
 };

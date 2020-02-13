@@ -5,14 +5,9 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/ExampleCommand.h"
+#include "subsystems/myTestSubSystem.h"
 
-ExampleCommand::ExampleCommand(ExampleSubsystem* subsystem)
-    : m_subsystem{subsystem} {}
+myTestSubSystem::myTestSubSystem() {}
 
-void ExampleCommand::Initialize() {
-    std::cout << "Our Example Command, Initializing." << std::endl;
-}
-void ExampleCommand::Execute() {
-    std::cout << "Our Example Command, Executing..." << std::endl;
-}
+// This method will be called once per scheduler run
+void myTestSubSystem::Periodic() {}
